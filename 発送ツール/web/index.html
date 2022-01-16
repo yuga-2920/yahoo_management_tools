@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>PDF作成ツール</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+    <b><textarea id="textarea" rows="18" cols="45"></textarea></b>
+
+    <script type="text/javascript" src="./eel.js"></script>
+    <script>
+      eel.main()
+      // button.addEventListener("click", () => {
+
+      //   let file_name = document.getElementById("file_name").value.trim();
+
+      //   if (
+      //     !file_name
+      //   ) {
+      //     alert("入力していない項目があります");
+      //   } else {
+      //     document.getElementById("textarea").value = "実行しました\n\n";
+      //     eel.main();
+      //   }
+      // });
+
+      // eel.expose(file_name);
+      // function file_name() {
+      //   return document.getElementById("file_name").value.trim();
+      // }
+
+      eel.expose(view_log_js);
+      function view_log_js(text) {
+        document.getElementById("textarea").value += text + "\n";
+      }
+    </script>
+  </body>
+</html>

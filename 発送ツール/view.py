@@ -1,0 +1,16 @@
+import eel
+import sys
+import desktop
+import yahuoku_shipping
+
+app_name="web"
+end_point="index.html"
+size=(380, 300)
+
+@ eel.expose
+def main():
+    yahuoku_shipping.main()
+    # sys.exit(0)
+    
+desktop.start(app_name,end_point,size)
+# sys.exit(0)

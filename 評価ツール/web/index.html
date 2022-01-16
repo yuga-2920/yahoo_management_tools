@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>発送連絡・評価ツール</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    QRコード読み取り記入欄<br />
+    <textarea type="search" id="col_list" rows="20" cols="30"></textarea><br /><br />
+    <button id="button">実行</button><br />
+    <b><textarea id="textarea" rows="20" cols="30"></textarea></b>
+
+    <script type="text/javascript" src="./eel.js"></script>
+    <script>
+      button.addEventListener("click", () => {
+        let col_list = document.getElementById("col_list").value.trim();
+        if (
+          !col_list
+        ) {
+          alert("入力していない項目があります");
+        } else {
+          document.getElementById("textarea").value = "実行しました\n\n";
+          eel.main();
+        }
+      });
+
+      eel.expose(view_log_js);
+      function view_log_js(text) {
+        document.getElementById("textarea").value += text + "\n";
+      }
+
+      eel.expose(col_list);
+      function col_list() {
+        return document.getElementById("col_list").value.trim();
+      }
+
+    </script>
+  </body>
+</html>
