@@ -224,8 +224,6 @@ def multiple_items_pdf_spreadsheet(driver, wait, origin_df, df, mail_id, deliver
 
         #商品の行を取得するための操作
         href = decItmName.find("a")['href']
-        # end_day = item.find(class_ = "decMDT").get_text(strip=True)
-        # end_day = change_date_fetche_spreadsheet(end_day)
 
         row = origin_df.query('Reference.str.contains("{}") & Purchaser.str.contains("{}")'.format(href, purchaser))
         index = row.index[0]
@@ -344,7 +342,6 @@ def main():
 
     #配送に必要な情報を整理
     df = origin_df[(origin_df['Purchaser'] != "pony13795") & (origin_df['Paid_Status'] != "") & (origin_df["Ship_Status"] == "") & (origin_df["Receive_Status"] == "") & (origin_df["Label_Process"] == "") & (origin_df["Ship_Order_No"] == "") & (origin_df["Evaluation_Proces"] == "")]
-    # df = origin_df[(origin_df['Purchaser'] == "pony13795") & (origin_df['Paid_Status'] != "") & (origin_df["Ship_Status"] == "") & (origin_df["Receive_Status"] == "") & (origin_df["Label_Process"] == "") & (origin_df["Ship_Order_No"] == "") & (origin_df["Evaluation_Proces"] == "")]
 
     #新規発送がある時の処理
     if not df.empty:
@@ -444,10 +441,7 @@ def main():
                         write_main_spreadsheet("AC{}".format(index + 2), "佐川急便")
 
                     line_notification('ラベルツール\n' + '佐川急便の商品です\n' + url)
-                    # line_error_notification('ラベルツール\n' + '佐川急便の商品です\n' + url)
                     sagawa_count += 1
-
-                # driver.quit()
 
             except:
                 i -= 1
@@ -470,15 +464,12 @@ def main():
 
         if i == 0:
             line_notification("新規の配送依頼はありませんでした")
-            # line_error_notification("新規の配送依頼はありませんでした")
             eel.view_log_js('終了しました\n')
 
         else:
             line_notification("pdfが{}つ作成されました".format(str(i)))
-            # line_error_notification("pdfが{}つ作成されました".format(str(i)))
             eel.view_log_js('終了しました\n')
 
     else:
         line_notification("新規の配送依頼はありませんでした")
-        # line_error_notification("新規の配送依頼はありませんでした")
         eel.view_log_js('終了しました\n')

@@ -10,7 +10,5 @@ size=(380, 300)
 @ eel.expose
 def main():
     yahuoku_shipping.main()
-    # sys.exit(0)
     
 desktop.start(app_name,end_point,size)
-# sys.exit(0)
