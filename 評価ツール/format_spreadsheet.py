@@ -11,11 +11,11 @@ def set_main_spreadsheet(): #=>worksheet
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
     #認証情報の設定
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('yahuoku-shipping-evaluation-dc1a8cb8daf4.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('###.json', scope)
     gc = gspread.authorize(credentials)
 
     #スプレッドシートの読み込み
-    SPREADSHEET_KEY = "1sFNfVTyCFO52esE1Pxej_aMffKjWNHZtTB3hOZz0xZ8"
+    SPREADSHEET_KEY = "###"
     workbook = gc.open_by_key(SPREADSHEET_KEY)
     worksheet = workbook.worksheet('alarm')
 

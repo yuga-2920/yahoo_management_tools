@@ -10,7 +10,5 @@ size=(280,650)
 @ eel.expose
 def main():
     yahuoku_evaluation.main()
-    # sys.exit(1)
     
 desktop.start(app_name,end_point,size)
-# sys.exit(1)
